@@ -23,8 +23,16 @@
                 <td>{{$project->service}}</td>
                 <td>{{$project->username}}</td>
                 <td>{{$project->password}}</td>
-                <td><button class="btn btn-primary">Show Password</button></td>
+                <td>
+                    {{-- <a class="btn btn-primary mb-3" href="{{route('logging', $project->project)}}">Show Password</a> --}}
+                
+                    <form action="{{route('logging', $project->id)}}" method="POST">
+                        @csrf
+                        @method('POST')
+                        <input class="btn btn-primary" type="submit" value="Show Password">
+                    </form>
 
+                </td>
             </tr>
             @endforeach
             

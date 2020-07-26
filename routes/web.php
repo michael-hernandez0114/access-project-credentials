@@ -25,3 +25,4 @@ Route::get('/home', 'ProjectController@index')->name('home');
 
 
 Route::resource('projects', 'ProjectController');
+Route::post('/logging', 'LoggingController@store')->name('logging');
