@@ -20,6 +20,8 @@ class ProjectController extends Controller
         $user_logged = Auth::id();
 
         //dd($user_logged);
+
+        return view('home', compact('projects'));
     }
 
     /**
@@ -58,20 +60,19 @@ class ProjectController extends Controller
             ->withErrors($validator)
             ->withInput();
         }
-        $apartment = new Apartment;
-        $data['user_id'] = Auth::id();
-        $apartment->fill($data);
+        $project = new Project;
+        $project['user_id'] = Auth::id();
+        $project->fill($data);
+        
+        //dd($project);
 
-        $saved = $apartment->save();
+        $saved = $project->save();
         if (!$saved) {
             abort('404');
         }
 
-        $apartment->services()->attach($data['services']);
-        // dd($apartment);
-        // return view('welcome');
 
-        return redirect()->route('owner.apartments.show', $apartment->id)->with('success', 'Apartment Added.');
+        return redirect()->route('home', $project->id)->with('success', 'Project Added.');
     }
 
     /**

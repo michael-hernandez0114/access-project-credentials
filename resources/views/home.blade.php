@@ -17,14 +17,17 @@
             <th>Show Password</th>
         </thead>
         <tbody>
+            @foreach ($projects as $project)
             <tr>
-                <td>Project Name</td>
-                <td>Service Name</td>
-                <td>User Name</td>
-                <td>*********</td>
+                <td>{{$project->project}}</td>
+                <td>{{$project->service}}</td>
+                <td>{{$project->username}}</td>
+                <td>{{$project->password}}</td>
                 <td><button class="btn btn-primary">Show Password</button></td>
 
             </tr>
+            @endforeach
+            
         </tbody>
 
 
