@@ -1,13 +1,13 @@
 @extends('layouts.layout')
 @section('title')
-
+    'Home'
 @endsection
 
 @section('body')
 @include('partials.header')
 <div class="container">
     <h3>Access Your Project Credentials</h3>
-    <button>Add New Credentials</button>
+    <a class="btn btn-primary mb-3" href="{{route('projects.create')}}">Add New Credentials</a>
     <table class="table">
         <thead>
             <th>Project</th>

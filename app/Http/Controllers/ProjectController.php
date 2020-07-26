@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use App\Project;
 
 class ProjectController extends Controller
@@ -18,7 +19,7 @@ class ProjectController extends Controller
         $projects = Project::all();
         $user_logged = Auth::id();
 
-        dd($user_logged);
+        //dd($user_logged);
     }
 
     /**
@@ -28,7 +29,11 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        $user_logged = Auth::id();
+
+        //dd($user_logged);
+
+        return view('create', compact('user_logged'));
     }
 
     /**
@@ -39,7 +44,34 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();        
+
+        $validator = Validator::make($data, [
+            'project' => 'required|string|min:1',
+            'service' => 'required|string|min:1',
+            'username' => 'required|string|min:1',
+            'password' => 'required|string|min:1'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('create')->with('failure', 'Project not added.')
+            ->withErrors($validator)
+            ->withInput();
+        }
+        $apartment = new Apartment;
+        $data['user_id'] = Auth::id();
+        $apartment->fill($data);
+
+        $saved = $apartment->save();
+        if (!$saved) {
+            abort('404');
+        }
+
+        $apartment->services()->attach($data['services']);
+        // dd($apartment);
+        // return view('welcome');
+
+        return redirect()->route('owner.apartments.show', $apartment->id)->with('success', 'Apartment Added.');
     }
 
     /**
