@@ -21,7 +21,7 @@ class ProjectController extends Controller
 
         //dd($user_logged);
 
-        return view('home', compact('projects'));
+        return view('home', compact('projects', 'user_logged'));
     }
 
     /**

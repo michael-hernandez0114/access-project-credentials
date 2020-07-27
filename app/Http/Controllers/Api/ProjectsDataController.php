@@ -26,10 +26,14 @@ class ProjectsDataController extends Controller
 
         $project = DB::table('projects')->where('id', $id)->first();
 
+        
+
         $loggingData['project'] = $project->project;
         $loggingData['service'] = $project->service;
         $loggingData['username'] = $project->username;
         $loggingData['user_id'] = Auth::id();
+
+        dd(Auth::id());
 
         //dd($loggingData);
 

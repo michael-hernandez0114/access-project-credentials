@@ -116,7 +116,11 @@ var vm = new Vue({
       });
     },
     postPasswordRetrieval: function postPasswordRetrieval(id) {
-      var apiURL = 'http://127.0.0.1:8000/api/logging';
+      pageTable = document.getElementsByTagName('table');
+      currentUser = pageTable[0].getAttribute('data-custom'); //currentUser = document.querySelector('table[data]').dataSet;
+
+      console.log(currentUser);
+      var apiURL = 'http://127.0.0.1:8000/api/logging' + '/' + id;
       axios.post(apiURL).then(function (response) {
         console.log(response); //vm.projects = response.data
         //console.log(vm.projects);

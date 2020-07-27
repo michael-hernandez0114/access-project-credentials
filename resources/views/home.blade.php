@@ -9,7 +9,7 @@
     <h3>Access Your Project Credentials</h3>
     <a class="btn btn-primary mb-3" href="{{route('projects.create')}}">Add New Credentials</a>
     <div id="app">
-        <table class="table">
+        <table class="table" data-custom="<?php echo $user_logged ?>">
             <thead>
                 <th>Project</th>
                 <th>Service</th>
