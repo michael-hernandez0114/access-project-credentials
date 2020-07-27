@@ -10,7 +10,10 @@
 </head>
 <body>
 @yield('body')
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="{{asset('js/app.js')}}" charset="utf-8"></script>
-    <script src="https://kit.fontawesome.com/4aa4c430a6.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/4aa4c430a6.js" crossorigin="anonymous"></script> --}}
 </body>
 </html>
