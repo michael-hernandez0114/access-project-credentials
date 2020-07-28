@@ -115,20 +115,28 @@ var vm = new Vue({
         vm.projects = response.data; //console.log(vm.projects);
       });
     },
+    displayPasswordAsterisk: function displayPasswordAsterisk(password) {
+      var passwordLength = password.length;
+      var asteriskString = '';
+
+      for (var index = 0; index < passwordLength; index++) {
+        asteriskString += '*';
+      }
+
+      ; //console.log(asteriskString);
+
+      return asteriskString;
+    },
     postPasswordRetrieval: function postPasswordRetrieval(id) {
       pageTable = document.getElementsByTagName('table');
-      currentUser = pageTable[0].getAttribute('data-custom'); //currentUser = document.querySelector('table[data]').dataSet;
+      currentUser = pageTable[0].getAttribute('data-custom'); //console.log(currentUser);
 
-      console.log(currentUser);
-      var apiURL = 'http://127.0.0.1:8000/api/logging' + '/' + id;
-      axios.post(apiURL).then(function (response) {
-        console.log(response); //vm.projects = response.data
-        //console.log(vm.projects);
-      });
+      var apiURL = 'http://127.0.0.1:8000/api/project/' + id + '/currentUser/' + currentUser;
+      axios.post(apiURL).then(function (response) {});
+      console.log(this);
     }
   }
 });
-console.log(vm.projects);
 
 /***/ }),
 

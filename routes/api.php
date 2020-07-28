@@ -23,4 +23,4 @@ Auth::routes();
 
 Route::get('projects', 'Api\ProjectsDataController@getAll');
 
-Route::post('/logging/{id}', 'Api\ProjectsDataController@storePasswordRetrieval')->name('logging');
+Route::post('/project/{id}/currentUser/{currentUser}', 'Api\ProjectsDataController@storePasswordRetrieval')->name('logging');

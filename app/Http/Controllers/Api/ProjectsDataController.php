@@ -22,20 +22,19 @@ class ProjectsDataController extends Controller
         return response()->json($all_projects);
     }
 
-    public function storePasswordRetrieval($id) {
+    public function storePasswordRetrieval($id, $currentUser) {
+
+        //dd($id, $currentUser);
 
         $project = DB::table('projects')->where('id', $id)->first();
 
-        
+        //dd($project);
 
         $loggingData['project'] = $project->project;
         $loggingData['service'] = $project->service;
         $loggingData['username'] = $project->username;
-        $loggingData['user_id'] = Auth::id();
+        $loggingData['user_id'] = $currentUser;
 
-        dd(Auth::id());
-
-        //dd($loggingData);
 
         $logging = new Logging;         
         $logging->fill($loggingData);

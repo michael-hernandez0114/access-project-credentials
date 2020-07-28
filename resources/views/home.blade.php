@@ -29,7 +29,7 @@
                     <td>@{{ project.project}}</td>
                     <td>@{{ project.service}}</td>
                     <td>@{{ project.username}}</td>
-                    <td>@{{ project.password}}</td>
+                    <td>@{{ displayPasswordAsterisk(project.password)}}</td>
                     <td>
 
 
