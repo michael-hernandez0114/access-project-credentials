@@ -94,23 +94,27 @@
 /***/ (function(module, exports) {
 
 // require('./bootstrap');
-var vm = new Vue({
-  el: '#app',
-  data: {
-    projects: []
-  },
-  computed: {},
-  created: function created() {
-    this.getProjects();
-  },
+// register
+Vue.component('project-credentials', {
+  props: ['projects'],
+  // data: function() {
+  //     return {
+  //         projects: [],
+  //     };
+  // },
+  // created: function() {
+  //     this.getProjects();
+  // },
   methods: {
-    getProjects: function getProjects() {
-      var apiURL = 'http://127.0.0.1:8000/api/projects';
-      axios.get(apiURL).then(function (response) {
-        //console.log(response);
-        vm.projects = response.data; //console.log(vm.projects);
-      });
-    },
+    // getProjects: function() {
+    //     var apiURL = 'http://127.0.0.1:8000/api/projects';
+    //     axios.get(apiURL)
+    //         .then(function(response) {
+    //             //console.log(response);
+    //             this.projects = response.data
+    //             //console.log(this.projects);
+    //         });
+    // },
     displayPasswordAsterisk: function displayPasswordAsterisk(password) {
       var passwordLength = password.length;
       var asteriskString = '';
@@ -132,6 +136,45 @@ var vm = new Vue({
       showPassword = document.getElementById('password-' + id);
       console.log(showPassword);
       showPassword.innerHTML = password;
+    }
+  },
+  template: '<table class="table" data-custom="01">\
+                    <thead>\
+                        <th>Project</th>\
+                        <th>Service</th>\
+                        <th>Username</th>\
+                        <th>Password</th>\
+                        <th>Show Password</th>\
+                    </thead>\
+                    <tbody>\
+                        <tr v-for="project in projects" :key="project.id">\
+                            <td>{{project.project}}</td>\
+                            <td>{{project.service}}</td>\
+                            <td>{{project.username}}</td>\
+                            <td :id="\'password-\'+project.id">{{displayPasswordAsterisk(project.password)}}</td>\
+                            <td>\
+                                <button @click="postPasswordRetrieval(project.id,project.password)" class="btn btn-primary">Show Password</button>\
+                            </td>\
+                        </tr>\
+                    </tbody>\
+                </table>'
+});
+var newComponent = new Vue({
+  el: '#app',
+  data: {
+    projects: []
+  },
+  created: function created() {
+    this.getProjects();
+  },
+  methods: {
+    getProjects: function getProjects() {
+      var apiURL = 'http://127.0.0.1:8000/api/projects';
+      axios.get(apiURL).then(function (response) {
+        //console.log(response);
+        newComponent.projects = response.data;
+        console.log(vm.projects);
+      });
     }
   }
 });
