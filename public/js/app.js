@@ -99,11 +99,7 @@ var vm = new Vue({
   data: {
     projects: []
   },
-  computed: {
-    numAsteroids: function numAsteroids() {
-      return this.asteroids.length;
-    }
-  },
+  computed: {},
   created: function created() {
     this.getProjects();
   },
@@ -127,13 +123,15 @@ var vm = new Vue({
 
       return asteriskString;
     },
-    postPasswordRetrieval: function postPasswordRetrieval(id) {
+    postPasswordRetrieval: function postPasswordRetrieval(id, password) {
       pageTable = document.getElementsByTagName('table');
       currentUser = pageTable[0].getAttribute('data-custom'); //console.log(currentUser);
 
       var apiURL = 'http://127.0.0.1:8000/api/project/' + id + '/currentUser/' + currentUser;
       axios.post(apiURL).then(function (response) {});
-      console.log(this);
+      showPassword = document.getElementById('password-' + id);
+      console.log(showPassword);
+      showPassword.innerHTML = password;
     }
   }
 });

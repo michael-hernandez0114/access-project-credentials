@@ -29,7 +29,7 @@
                     <td>@{{ project.project}}</td>
                     <td>@{{ project.service}}</td>
                     <td>@{{ project.username}}</td>
-                    <td>@{{ displayPasswordAsterisk(project.password)}}</td>
+                <td :id="'password-' + project.id">@{{ displayPasswordAsterisk(project.password)}}</td>
                     <td>
 
 
@@ -39,7 +39,7 @@
                             @method('POST')
                             <input class="btn btn-primary" type="submit" value="Show Password">
                         </form> --}}
-                        <button @click="postPasswordRetrieval(project.id)" class="btn btn-primary">Show Password</button>
+                        <button @click="postPasswordRetrieval(project.id,project.password)" class="btn btn-primary">Show Password</button>
 
                     </td>
                 </tr>

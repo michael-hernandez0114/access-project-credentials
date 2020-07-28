@@ -7,10 +7,9 @@ var vm = new Vue ({
         projects: [],
     },
     computed: {
-        numAsteroids: function() {
-            return this.asteroids.length;
+
         }
-    },
+    ,
     created: function() {
         this.getProjects();
     },
@@ -42,7 +41,7 @@ var vm = new Vue ({
             return asteriskString;
 
         },
-        postPasswordRetrieval: function(id) {
+        postPasswordRetrieval: function(id, password) {
             pageTable = document.getElementsByTagName('table');
             currentUser = pageTable[0].getAttribute('data-custom');
             //console.log(currentUser);
@@ -53,7 +52,11 @@ var vm = new Vue ({
 
                 });
 
-            console.log(this);
+            showPassword = document.getElementById('password-' + id);
+            console.log(showPassword);
+
+            showPassword.innerHTML = password;
+
         }
     }
 });
