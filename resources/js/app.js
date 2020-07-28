@@ -2,27 +2,9 @@
 
   // register
   Vue.component('project-credentials', {
-      props: ['projects'],
-    // data: function() {
-    //     return {
-    //         projects: [],
-    //     };
-    // },
-    // created: function() {
-    //     this.getProjects();
-    // },
+    props: ['projects'],
     methods: {
-        // getProjects: function() {
-
-        //     var apiURL = 'http://127.0.0.1:8000/api/projects';
-        //     axios.get(apiURL)
-        //         .then(function(response) {
-        //             //console.log(response);
-        //             this.projects = response.data
-        //             //console.log(this.projects);
-        //         });
-        // },
-
+        
         displayPasswordAsterisk: function(password) {
 
             var passwordLength = password.length;
@@ -41,8 +23,8 @@
         },
         postPasswordRetrieval: function(id, password) {
             pageTable = document.getElementsByTagName('table');
-            currentUser = pageTable[0].getAttribute('data-custom');
-            //console.log(currentUser);
+            currentUser = pageTable[0].getAttribute('currentUser');
+            console.log(currentUser);
 
             var apiURL = 'http://127.0.0.1:8000/api/project/' + id + '/currentUser/' + currentUser;
             axios.post(apiURL)
@@ -51,13 +33,13 @@
                 });
 
             showPassword = document.getElementById('password-' + id);
-            console.log(showPassword);
+            //console.log(showPassword);
 
             showPassword.innerHTML = password;
 
         }
     },
-    template: '<table class="table" data-custom="01">\
+    template: '<table class="table">\
                     <thead>\
                         <th>Project</th>\
                         <th>Service</th>\
@@ -96,7 +78,7 @@ var newComponent = new Vue({
                 .then(function(response) {
                     //console.log(response);
                     newComponent.projects = response.data
-                    console.log(vm.projects);
+                    console.log(newComponent.projects);
                 });
         }
     }
