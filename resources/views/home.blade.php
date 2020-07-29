@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('title')
-    'Home'
+    'Access Project Credentials'
 @endsection
 
 @section('body')

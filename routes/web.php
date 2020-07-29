@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Middleware\Authenticate;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,14 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/projects', 'ProjectController@index')->name('projects');
+Route::middleware('auth')
+->group(function(){
+    Route::get('/projects', 'ProjectController@index')->name('projects');
+    Route::resource('projects', 'ProjectController');
+});
+
+// Route::get('/projects', 'ProjectController@index')->middleware('auth')->name('projects');
 
 
-Route::resource('projects', 'ProjectController');
+// Route::resource('projects', 'ProjectController');
 //Route::post('/logging', 'LoggingController@store')->name('logging');
