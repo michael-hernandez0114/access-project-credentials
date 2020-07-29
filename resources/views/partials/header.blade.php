@@ -1,6 +1,6 @@
 <header id="myHeader">
     <div class="container-fullwidth clearfix">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg float-right">
              
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                  <span class="navbar-toggler-icon"></span>
