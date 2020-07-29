@@ -1,4 +1,9 @@
-# High Level
+# High Level Requirements
+
+Create a small web app that will allow a user to access project credentials that they have stored. The web app will have the following requirements:
+
+- Each user will need to log-in with email and password
+- Upon log-in, the user will be taken to a new page where they can enter and see 
 
 Realizzare, nel modo che si ritiene più opportuno, una piccola Web Application che permetta di memorizzare e visualizzare credenziali di accesso di vari progetti (per semplificare ed unificare il modo in cui un team accede a tali credenziali).
 

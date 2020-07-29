@@ -11,10 +11,10 @@
     <form class="" action="{{route('projects.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('POST')
-        <div class="form-group">
+        <div class="form-group ui-widget">
             {{-- <h4>Apartment info</h4> --}}
             <label for="project">Project</label>
-            <input type="text" name="project" class="form-control" value="{{old('project')}}">
+            <input id ="create-project" type="text" name="project" class="form-control" value="{{old('project')}}">
         </div>
         @error('project')
             <div class="alert alert-danger">{{$message}}</div>

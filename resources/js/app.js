@@ -76,11 +76,33 @@ var newComponent = new Vue({
             var apiURL = 'http://127.0.0.1:8000/api/projects';
             axios.get(apiURL)
                 .then(function(response) {
-                    console.log(response);
+                    //console.log(response);
                     newComponent.projects = response.data
                     //console.log(newComponent.projects);
                 });
         }
     }
 });   
+$.noConflict();
+$(document).ready( function() { 
+    var allProjects = [];
+
+    var apiURL = 'http://127.0.0.1:8000/api/projects';
+            axios.get(apiURL)
+                .then(function(response) {
+                    //console.log(response);
+                    var projectsObj = response.data
+
+                    for (const key in projectsObj) {
+                        allProjects.push(projectsObj[key].project);
+                       // console.log(projectsObj[key].project);
+                    }
+                    //console.log(allProjects);
+                });
+
+    $( "#create-project" ).autocomplete({ 
+      source: allProjects 
+  
+    }); 
+}); 
 
