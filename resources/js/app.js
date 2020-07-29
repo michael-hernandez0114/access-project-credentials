@@ -1,4 +1,4 @@
-// require('./bootstrap');
+require('./bootstrap');
 
   // register
   Vue.component('project-credentials', {
@@ -23,7 +23,7 @@
         },
         postPasswordRetrieval: function(id, password) {
             pageTable = document.getElementsByTagName('table');
-            currentUser = pageTable[0].getAttribute('currentUser');
+            currentUser = pageTable[0].getAttribute('data-custom');
             console.log(currentUser);
 
             var apiURL = 'http://127.0.0.1:8000/api/project/' + id + '/currentUser/' + currentUser;
@@ -76,9 +76,9 @@ var newComponent = new Vue({
             var apiURL = 'http://127.0.0.1:8000/api/projects';
             axios.get(apiURL)
                 .then(function(response) {
-                    //console.log(response);
+                    console.log(response);
                     newComponent.projects = response.data
-                    console.log(newComponent.projects);
+                    //console.log(newComponent.projects);
                 });
         }
     }

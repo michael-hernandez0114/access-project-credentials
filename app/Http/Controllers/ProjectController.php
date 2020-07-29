@@ -72,7 +72,7 @@ class ProjectController extends Controller
         }
 
 
-        return redirect()->route('home', $project->id)->with('success', 'Project Added.');
+        return redirect()->route('home')->with('success', 'Project Added.');
     }
 
     /**
