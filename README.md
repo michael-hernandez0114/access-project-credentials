@@ -3,7 +3,12 @@
 Create a small web app that will allow a user to access project credentials that they have stored. The web app will have the following requirements:
 
 - Each user will need to log-in with email and password
-- Upon log-in, the user will be taken to a new page where they can enter and see 
+- Upon log-in, the user will be taken to a new page where they can see existing projects and add new ones
+- All passwords will be displayed with an asterisk for each character of the password
+- Upon clicking "Create New Projects" button, the user will be taken to a new page to submit new project credentials
+- Create project page will have autocomplete based on existing projects in the DB for the project input
+- Each project entry in the table will have a "Show Password" button which can be used to display the hidden password. This event will be registered in the DB saving the user which grabbed the password, project credentials retrieved and the timestamp of the event
+
 
 Realizzare, nel modo che si ritiene più opportuno, una piccola Web Application che permetta di memorizzare e visualizzare credenziali di accesso di vari progetti (per semplificare ed unificare il modo in cui un team accede a tali credenziali).
 

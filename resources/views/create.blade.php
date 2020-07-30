@@ -12,7 +12,6 @@
         @csrf
         @method('POST')
         <div class="form-group ui-widget">
-            {{-- <h4>Apartment info</h4> --}}
             <label for="project">Project</label>
             <input id ="create-project" type="text" name="project" class="form-control" value="{{old('project')}}">
         </div>
