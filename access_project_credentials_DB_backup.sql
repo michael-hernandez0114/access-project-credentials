@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jul 30, 2020 at 07:19 AM
+-- Generation Time: Jul 30, 2020 at 07:24 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.4.2
 
@@ -13,6 +13,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `access_project_credentials`
 --
+CREATE DATABASE IF NOT EXISTS `access_project_credentials` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `access_project_credentials`;
 
 -- --------------------------------------------------------
 
