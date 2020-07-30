@@ -9,37 +9,39 @@ Create a small web app that will allow a user to access project credentials that
 - Create project page will have autocomplete based on existing projects in the DB for the project input
 - Each project entry in the table will have a "Show Password" button which can be used to display the hidden password. This event will be registered in the DB saving the user which grabbed the password, project credentials retrieved and the timestamp of the event
 
+## Technologies Used
 
-Realizzare, nel modo che si ritiene più opportuno, una piccola Web Application che permetta di memorizzare e visualizzare credenziali di accesso di vari progetti (per semplificare ed unificare il modo in cui un team accede a tali credenziali).
+- HTML
+- Laravel
+- PHP
+- MySQL
+- Vue
+- CSS
+- jQuery
+- Bootstrap
 
-### Make a web app that will allow storing and displaying of access credentials for various projects
+## Requirements to Use This App
 
-La web application avrà una pagina di Login a cui si accede con Email e Password del membro del team. Inserire manualmente un paio di utenti di prova in database (non è necessario creare una sezione "Registrazione Nuovo Utente").
+- Must have a virtual server tool like MAMP or equivalent
+- Must have node installed
+- Must have composer installed
+- Clone this repo onto your local machine
+- Download a copy of the DB
+- Update env file with the DB credentials --> DB name: access_project_credentials, user: root, password: root
+- Run npm install
+- After copying the repo, you will need to generate a key for this app by running command: php artisan key:generate
+- Run this command to establish a connection to the DB: composer dump-autoload
 
-### The web app will have a log-in page that will grant access using email and password. Manually create test accounts. No registration page required.
+## Available URL's
 
-- Use Laravel Auth
+- Login page can be reached via http://127.0.0.1:8000 or whicever URL your virtual server tool establishes
+- Registration page is available for testing additional accounts but is not required -> http:127.0.0.1:8000/register
+- Projects page can be reached via http:127.0.0.1:8000/projects but note you need to be logged-in to access this page
 
-Dopo aver effettuato il login, dovrà comparire una nuova pagina nella quale:
+## Test Accounts
 
-## After successful log-in, the user should be taken to a new page:
+- Three test accounts with dummy projects have been created. Their credentials are below:
 
-- C'è un pulsante per inserire nuove "crendeziali" specificando Progetto, Servizio a cui si sta accedendo, Username e Password (ad esempio => PROGETTO: Mondadori - SERVIZIO: Gmail - USERNAME: mondadori@gmail.com - PASSWORD: Segreto123)La voce "Progetto" potrà essere una di quelle precedentemente inserite (quindi, ad esempio, se inserisco i primi caratteri di un "progetto" in precedenza inserito, il sistema dovrà suggerirlo) oppure del tutto nuova.
-
-### There is a button to insert new credentials requiring Projects, Service, Username and Password
-(example ROGETTO: Mondadori - SERVIZIO: Gmail - USERNAME: mondadori@gmail.com - PASSWORD: Segreto123)
-- When entering a project name, the app should auto populate any values that it finds in the DB that match the name (auto suggest)
-
-
-- C'è una tabella che mostra le credenziali già inserite.
-In questa tabella Le Password dovranno essere mostrate sotto forma di asterischi, un asterisco per ogni carattere della password. Ogni riga della tabella avrà un apposito pulsante "Mostra Password" che andrà a pescare la password dal Database e la sostituirà agli asterischi. Prima del click di questo pulsante, il Client non dovrà possedere la password.
-
-### There is a table that can display credentials already entered. Each password stored will be displayed with asterisks, one asterisk per character.
-
-** Each record in the table will have a "show password" feature that will grab the password from the DB and display it in the table **
-
-Infine, al click di "Mostra Password", il Server dovrà memorizzare nel Database le informazioni della richiesta, quindi: l'utente che ha fatto richiesta, la credenziale che è stata richiesta, il timestamp in cui è stata fatta la richiesta
-
-### After each use of the "Show Password" feature, the web app should store all requests to the DB storing: the user who made the request, the credentials requested (project?), and the timestamp of the request
-
-Come detto, la Web Application potrà essere creata a piacere, utilizzando qualsiasi tipo di framework o libreria di supporto. Gli unici obblighi sono l'utilizzo di PHP come linguaggio Server-Side e Database Relazionali MySQL.
+- user1@email.com , user1password
+- user2@email.com , user2Password
+- user3@email.com , password3User
